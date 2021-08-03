@@ -31,10 +31,39 @@ int main(){
     case 18:
         cout<<"You are 18 brother"<<endl;
         break;
-    
     default:
         cout<<"You are Human brother"<<endl;
         break;
     }
+
+    /* Loop Control Structure
+        There are three of loops in C++
+            1. For loop
+            2. While loop
+            3. do-while loop
+    */
+
+    // For loop
+    for(int i=0; i<10; i++){
+        cout<<i;
+    }
+    cout<<"\n";
+
+    // while loop
+    int i = 0;
+    while (i<10){
+        cout<<i;
+        i ++;
+    }
+    cout<<"\n";
+
+    // do-while loop
+    int j = 0;
+    do
+    {
+        j++;
+        cout<<"6 x "<<j<<" : "<<6*j<<endl;
+    } while (j<10);
+    
     return 0;
 }
