@@ -7,6 +7,36 @@
 
 using namespace std;
 
+// Array Searching Algorithms
+// Function to perform Linear Search algorithm in an Array. Time Complexity : O(n)
+int linearSearch(int arr[],int size, int key){
+    for(int index=0; index<size; index++){
+        if(arr[index]==key){
+            return index;
+        }
+    }
+    return -1;
+}
+
+// Function to perform binary search algorithm time complexity: 0(logn) but for it the array should be sorted.
+int binarySearch(int arr[], int size, int key){
+    int start=0, end=size-1;
+    while (start<=end){
+        int mid=(start+end)/2;
+        if (key>arr[mid]){
+            start = mid + 1;
+        }
+        else if (key<arr[mid]){
+            end = mid - 1;
+        }
+        else{
+            return mid;
+        }
+    }
+    return -1;
+}
+
+
 int main(){
 
     int arr[4] = {5, 8, 7, 3};
@@ -33,7 +63,14 @@ int main(){
         maxNo = max(maxNo, newArr[i]);
         minNo = min(minNo, newArr[i]);
     }
-    cout<<"\nMinimum : "<<minNo<<" and Maximum : "<<maxNo;
+    cout<<"\nMinimum : "<<minNo<<" and Maximum : "<<maxNo<<endl;
+
+    int key;
+    cout<<"Enter a key to search it in Array : ";
+    cin>>key;
+    cout<<linearSearch(newArr, size, key)<<endl;
+    cout<<binarySearch(newArr, size, key);
+    
 
     return 0;
 }
