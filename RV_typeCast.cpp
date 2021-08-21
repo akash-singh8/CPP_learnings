@@ -2,6 +2,12 @@
 
 using namespace std;
 
+
+void increment(int &num){
+    num++;
+}
+
+
 int num3 = 32;
 
 int main(){
@@ -22,11 +28,24 @@ int main(){
   cout<<"The Size of dob : "<<sizeof(dob)<<endl;
 
   // Reference Variables
-  // Akash --> dipu --> bihari --> chota
-  float x = 455;
-  // now the y will refer to the value of x
-  float & y = x;
-  cout<<"The Value of x : "<<x<<"  sand The Value of y : "<<y<<endl;
+  int i = 65;
+  int j = i;
+
+  i++;
+  // i and j are currently in different memory location so on changing the value of one other will remain same
+  cout<<i<<" "<<j<<endl;
+
+  // if we want to change both while changing value of one varialbe, for that we use reference variable : int &<var>
+  int x = 21;
+  x++;
+  int &y = x; // this means y is just reference to an existing memory
+  cout<<x<<" "<<y<<endl;  // and the memory address of both x and y will be same
+
+  // the use of reference variable is to pass it to the function in which we want to reflect the changes, and it known as pass by reference. we can also use pointers but to takes extra space in memory whereas a reference variable points to existing memory so it'll have better space complexity.
+  int z = 42;
+  cout<<z<<" ";
+  increment(z);
+  cout<<z<<endl;
 
   // Type Casting -> changing the data type of variable
   float num = 4.54f;
