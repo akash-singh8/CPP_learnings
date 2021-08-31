@@ -20,6 +20,7 @@ int main(){
     /* this will create memory of 4 bytes in HeapMemory and will return an address of that memory to the pointer p and this 
     pointer will stored in Stack Memory and will take 4 bytes as well. So in total 8 bytes is used.*/
     *p = 10;
+    // another way to assing the value at the address is : int *p = new int(10);
     cout<<p<<" "<<*p<<endl;
 
 
