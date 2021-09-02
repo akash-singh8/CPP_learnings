@@ -1,0 +1,2 @@
+Writing in the file using open() member function.
+I'm Akash Kumar Singh
