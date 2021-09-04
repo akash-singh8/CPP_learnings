@@ -39,8 +39,9 @@ void letSort(sdT &s, int size){
 
 
 /* Similarly we can use template with class but this time it's mandatory to pass the dataType while create an object using that 
-class example creating a class which will find min/max of two values of any dataType */
-template <class DT>
+class example creating a class which will find min/max of two values of any dataType.
+we can also pass more than one parameter to template or can set a default parameter to template. */
+template <class DT=int>
 class MathOP{
     DT val1, val2;
     public:
