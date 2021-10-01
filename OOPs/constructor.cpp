@@ -41,13 +41,17 @@ class Student{
             cout<<"Roll Number : "<<rollNo<< " and Age : "<<age<<endl<<endl;
         }
 
-        /* Copy Constructor is used to copy the arguments of constructor of one object to other object, it's already present by default, 
-           We can also create our own copy constructor */
-        // Student(Student &stu){
-        //     cout<<"Called Copy Constructor!"<<endl;
-        //     this->rollNo = stu.rollNo;
-        //     this->age = stu.age;
-        // }
+        /* Copy Constructor is used to copy the arguments of constructor of one object to other object, it's already present by 
+        default, We can also create our own copy constructor, The time when we create our own copy constructor the default copy constructor
+        is no longer available! due to which we've to pass the Student obj as argument using pass by reference because if we don't an infinite
+        loop will be created e.g. Student(Student stu) since as we created our own copy Constructor there is no longer default Copy Constructor
+        due to which the object stu treat stu = StudentObj as stu(StudentObj) and will also call that copy constructor and it will be repeated 
+        infinitely, so while creating Copy constructor it's important to pass the object using paas by reference, const is just used so that we can only access the value and can't change */
+        Student(Student const &stu){
+            cout<<"Called Copy Constructor!"<<endl;
+            this->rollNo = stu.rollNo;
+            this->age = stu.age;
+        }
 
         /* Destructor is opposite to constructor means it invoked/executes when the scope of object comes to end, the main use of Destructor
            is to deallocate the memory of the variable inside the class which is created in heap memory, it has also same name as class */
@@ -75,8 +79,8 @@ int main(){
     // Since s2's object is created in heap memory, for it Destructor will not be invoked until we deallocate it from heap memory.
     delete s2;
     
-    // There's two way to call the constructor 1. Calling constructor explicitly
-    Student obj = Student(34, 18);
+    // There's two way to call the constructor 1. Calling constructor explicitly, we shouldn't use this method if we have our own copy constructor as by writing Student obj = anotherObj/className; the compiler execute it as Student obj(anotherobj);
+    // Student obj = Student(34, 18); 
     // or 2. Calling Constructor implicitly
     // Student obj(34, 18);
 
