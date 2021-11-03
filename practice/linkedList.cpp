@@ -80,6 +80,21 @@ Node* evenAfodd(Node *head){
     return ohead;
 }
 
+// Delete alternative nodes of a given linked list
+void delAlternativeNodes(Node *head){
+    Node *n = head->next;
+    while (n!=NULL && n->next!=NULL){
+        head->next = n->next;
+        head = n->next;
+        delete n;
+        n = head->next;
+    }
+    if (head->next!=NULL && n->next==NULL){
+        head->next = NULL;
+        delete n;
+    }
+}
+
 // Function to swap the linked list
 Node* swapNode(Node *head, int i, int j){
     Node *iprev, *jprev, *jnxt;
@@ -178,6 +193,30 @@ Node* kreverse(Node *head, int k){
         i++;
     }
     return mHead;
+}
+
+
+// Given a large number represented in the form of a linked list. Write code to increment the number by 1 in-place(i.e. without using extra space).
+void helper(Node *head){
+    if (head->next==NULL){
+        if (head->data==9) head->data=0;
+        else head->data++;
+        return;
+    }
+    Node *temp = head->next;
+    int nxt = temp->data;
+    helper(temp);
+    if (temp->data==0 && nxt==9){
+        if (head->data==9) head->data=0;
+        else head->data++;
+    }
+}
+Node* incrementLL(Node *head){
+    helper(head);
+    if (head->data) return head;
+    Node *newNode = new Node(1);
+    newNode->next = head;
+    return newNode;
 }
 
 
